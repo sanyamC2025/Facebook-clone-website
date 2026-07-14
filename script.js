@@ -5,12 +5,12 @@ const firstNameInput   = document.querySelector('.modal-form input[placeholder="
 
 function toggleModal(shouldOpen) {
     if (shouldOpen) {
-        registerModal.classList.add('active');
+        if (registerModal) registerModal.classList.add('active');
         if (firstNameInput) {
             setTimeout(() => firstNameInput.focus(), 50);
         }
     } else {
-        registerModal.classList.remove('active');
+        if (registerModal) registerModal.classList.remove('active');
     }
 }
 
@@ -29,7 +29,25 @@ window.addEventListener('click', (e) => {
 });
 
 window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && registerModal.classList.contains('active')) {
+    if (e.key === 'Escape' && registerModal && registerModal.classList.contains('active')) {
         toggleModal(false);
     }
 });
+
+const loginForm = document.querySelector('.card form');
+const signupForm = document.querySelector('.modal-form');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Log In button clicked! Form submission intercepted successfully.');
+    });
+}
+
+if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Sign Up form submitted successfully!');
+        toggleModal(false);
+    });
+}
