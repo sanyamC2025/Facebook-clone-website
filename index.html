@@ -9,13 +9,11 @@
 <body>
 
     <main class="main-container">
-        <!-- Left Section: Branding Panel -->
         <section class="brand-panel">
-            <img src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lOa73zDEqO.svg" alt="Facebook" class="fb-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Facebook_Logo_%282019%29.svg" alt="Facebook" class="fb-logo">
             <h2>Facebook helps you connect and share with the people in your life.</h2>
         </section>
 
-        <!-- Right Section: Interactive Authentication Card -->
         <section class="auth-panel">
             <div class="card shadow-box">
                 <form action="#" method="POST" autocomplete="on">
@@ -31,7 +29,7 @@
                     </div>
                     <hr class="divider">
                     <div class="action-footer">
-                        <button type="button" class="btn btn-success">Create new account</button>
+                        <button type="button" id="open-modal-btn" class="btn btn-success">Create new account</button>
                     </div>
                 </form>
             </div>
@@ -40,6 +38,39 @@
             </p>
         </section>
     </main>
+
+    <div class="modal-overlay" id="register-modal">
+        <div class="modal-box shadow-box">
+            <div class="modal-header">
+                <div>
+                    <h2>Sign Up</h2>
+                    <p>It's quick and easy.</p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-modal-btn">&times;</button>
+            </div>
+            <hr class="divider">
+            <form class="modal-form">
+                <div class="input-row">
+                    <input type="text" placeholder="First name" required>
+                    <input type="text" placeholder="Surname" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Mobile number or email address" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="New password" required>
+                </div>
+                <p class="terms-text">
+                    People who use our service may have uploaded your contact information to Facebook.
+                </p>
+                <div class="action-footer">
+                    <button type="submit" class="btn btn-success signup-submit-btn">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
